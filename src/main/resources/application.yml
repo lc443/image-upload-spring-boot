@@ -1,0 +1,26 @@
+#In case you have flyway you need to add
+spring:
+  application:
+    name: Multipart File
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+  liquibase:
+    enabled: false
+    changeLog: classpath:db/changelog/changelog-master.xml
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/javaDb
+    username: postgres
+    password: password
+  jpa:
+    rest:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: image
+    hibernate:
+      ddl-auto: update
+      show-sql: true
